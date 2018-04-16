@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "node.h"
+#include "grid.h"
 using namespace std;
 
 
