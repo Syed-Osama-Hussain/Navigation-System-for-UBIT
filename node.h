@@ -13,7 +13,7 @@ public:
         //this->is_allowed= true;
         this->x= 0;
         this->y= 0;
-        //this->val=1;
+        this->val=1;
       }
 
       Node(int g_v, int h_v, int f_v, int xx, int yy)
@@ -52,6 +52,13 @@ public:
       {
         this->f_value= this->g_value+this->h_value;
       }
+
+friend ostream& operator<<(ostream& out, Node& N)
+{
+  return out<<endl<<N.f_value<<endl<<N.g_value<<endl<<N.h_value<<endl<<N.val<<endl;
+}  
+
+   
 
 
 private:
