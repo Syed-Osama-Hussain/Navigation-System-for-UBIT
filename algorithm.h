@@ -10,6 +10,8 @@ public:
 
 dijkstra()
 {
+  
+ 
   makegraph();
   this->path= new int[this->g1.getcount()];
   this->distance= new int[this->g1.getcount()];
@@ -31,21 +33,6 @@ void makegraph()
 {
   g1.readNodeData();
   g1.readNeighborData();
-  /*g1.add_neighbour(0,1,5);
-  g1.add_neighbour(0,5,8);
-  g1.add_neighbour(0,2,2);
-  g1.add_neighbour(1,0,5);
-  g1.add_neighbour(1,2,9);
-  g1.add_neighbour(2,0,2);
-  g1.add_neighbour(2,1,9);
-  g1.add_neighbour(2,3,4);
-  g1.add_neighbour(2,4,10);
-  g1.add_neighbour(3,2,4);
-  g1.add_neighbour(4,2,10);
-  g1.add_neighbour(4,5,3);
-  g1.add_neighbour(5,0,8);
-  g1.add_neighbour(5,4,3);*/
-
 }
 
 void dijkstra_search (string source,string target)
@@ -74,9 +61,11 @@ for(int i=0;i<this->g1.getcount();i++)
   visited[min_vertex]= true;
   for(int j=0;j<this->g1.getcount();j++)
   {
+    
     if(check_neighbors(min_vertex,j) && !visited[j])
     {
       int dist= this->distance[min_vertex]+ this->g1.getadjmatrix(min_vertex,j);
+       
       if(dist<distance[j])
       {
         distance[j]= dist;
@@ -104,7 +93,7 @@ int findMinVertex()
   }
   
   this->path[n]=min_vertex;
-  n++;
+  n++;  
   return min_vertex;
   
 }
