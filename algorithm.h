@@ -17,16 +17,21 @@ dijkstra()
 
 }
 
+~dijkstra()
+{
+ delete[] path;
+ delete[] distance;
+ delete[] visited;
+ path= nullptr;
+ distance= nullptr;
+ visited= nullptr;
+}
 
 void makegraph()
 {
-  g1.add_element(0);
-  g1.add_element(1);
-  g1.add_element(2);
-  g1.add_element(3);
-  g1.add_element(4);
-  g1.add_element(5);
-  g1.add_neighbour(0,1,5);
+  g1.readNodeData();
+  g1.readNeighborData();
+  /*g1.add_neighbour(0,1,5);
   g1.add_neighbour(0,5,8);
   g1.add_neighbour(0,2,2);
   g1.add_neighbour(1,0,5);
@@ -39,13 +44,16 @@ void makegraph()
   g1.add_neighbour(4,2,10);
   g1.add_neighbour(4,5,3);
   g1.add_neighbour(5,0,8);
-  g1.add_neighbour(5,4,3);
+  g1.add_neighbour(5,4,3);*/
 
 }
 
-void dijkstra_search (int src,int target)
+void dijkstra_search (string source,string target)
 {
-  
+  int src;
+  int tar;
+  src=g1.SearchByName(source);
+  tar=g1.SearchByName(target);
   n=0;
 
 for(int i=0;i<this->g1.getcount();i++)
@@ -59,7 +67,7 @@ for(int i=0;i<this->g1.getcount();i++)
 {
   
   int min_vertex= findMinVertex();
-  if(min_vertex==target)
+  if(min_vertex==tar)
   {
     break;
   }
@@ -80,12 +88,7 @@ for(int i=0;i<this->g1.getcount();i++)
 
 }
 
-display_path(target);
-//delete[] visited;
-  //delete[] distance;
-
-  //visited= nullptr;
-  //distance= nullptr;
+display_path(tar);
 }
 
 
@@ -130,12 +133,17 @@ void display_path(int tar)
   
 }*/
 cout<<"\nThe path to the destination is: ";
-for(int j=0;j<=tar;j++)
+for(int j=0;j<=g1.getcount();j++)
   {
-    cout<<this->path[j]<<" ";
+    if(this->path[j]>=0)
+    {
+      string temp;
+      temp=g1.SearchByNum(path[j]);
+    cout<<temp<<" ";
+    }
   }
 
-  cout<<" with total distance of "<<distance[tar]<<" units."<<endl;
+  cout<<" with total distance of "<<distance[tar]<<" units.\n"<<endl;
 
 }
 

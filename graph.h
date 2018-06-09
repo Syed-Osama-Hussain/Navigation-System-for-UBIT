@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include "Node.h"
+#include "neighbors.h"
+#include <fstream>
 using namespace std;
 
 int n=0;
@@ -9,9 +11,9 @@ public:
 
 graph()
 {
-  //this->no_of_vertices= 0;
   this->count=0;
-  this->init=6;
+  this->init=5;
+  this->vertices= new Node[this->init];
   this->adjmatrix= new int*[this->init];
   for(int i=0;i<this->init;i++)
   {
@@ -29,49 +31,94 @@ graph()
 }
 
 
-/*~graph()
+
+void readNodeData()
+ {
+   Node n1;
+   ifstream fin;
+   fin.open("nodedata.txt",ios::in);
+   for(int i=0;i<=this->init;i++)
+   {
+     if(fin.good())
+     {
+        if(init==count)
+  {
+   increasesize();
+  }
+     fin>>n1;
+     this->vertices[i]= n1;
+     this->count++;
+     }
+
+     else
+     {
+       break;
+     }
+   }
+   fin.close();
+}
+
+
+void readNeighborData()
 {
+   neighbors nei;
+   ifstream fin;
+   fin.open("neighborsdata.txt",ios::in);
+   
+     while(fin.good())
+     {
+  
+     fin>>nei;
+     add_neighbour(nei);
+     }
+
     
+   fin.close();
+}
+
+
+~graph()
+{
+    delete[] vertices;
+    vertices= nullptr;
   for(int i=0;i<=this->init;i++)
   {
     delete[] adjmatrix[i];
   }
-delete[] adjmatrix;
-  
-}*/
+//delete[] adjmatrix;
+}
 
 
-void add_element(int element)
+void add_element(Node& element)
 {
   if(init==count)
   {
    increasesize();
   }
    
-   this->vertices.push_back(element);
+   this->vertices[this->count]=element;
    this->count++;
-  // this->no_of_vertices++;
   
 }
 
 
-void add_neighbour(int element,int neighbour,int weight)
+void add_neighbour(neighbors& n)
 {
-  this->adjmatrix[element][neighbour]= weight;
+  this->adjmatrix[n.getSource()][n.getDest()]= n.getweight();
 }
 
 
 void display()
 {   
-   for(std::vector<int>::iterator i=this->vertices.begin();i!=this->vertices.end();i++)
+   for(int i=0;i<this->count;i++)
    {
-     cout<<"The vertex "<< *i <<" has the neighbours: ";
+     cout<<"The vertex "<< i <<" has the neighbours: ";
      for(int j=0;j<=this->count;j++)
      {
-       if(this->adjmatrix[*i][j]>=0)
+       if(this->adjmatrix[i][j]>=0)
        {
          //cout<<this->adjmatrix[*i][j]<<" ";
-         cout<<j<<" with weight "<<this->adjmatrix[*i][j]<<"   ";
+         cout<<j<<" with weight "<<this->adjmatrix[i][j]<<"   ";
        }
        
      }
@@ -83,13 +130,13 @@ void display()
 
 void increasesize()
 {
-  bool **temp= nullptr;
+  int **temp= nullptr;
   this->init*=2;
-  temp= new bool*[this->init];
+  temp= new int*[this->init];
  
   for(int i=0;i<=this->init;i++)
   {
-    temp[i]= new bool[this->init];
+    temp[i]= new int[this->init];
   }
   for(int i=0;i<this->count;i++)
   {
@@ -105,7 +152,19 @@ void increasesize()
   }
   delete[] adjmatrix;
 
-  //adjmatrix=temp;
+
+  adjmatrix=temp;
+
+   Node *tempv= new Node[this->init];
+   for(int i=0;i<this->count;i++)
+   {
+     tempv[i]= this->vertices[i];
+   }
+
+   delete[] this->vertices;
+   this->vertices= tempv;
+
+
  /* for(int i=this->count-1;i<=this->init;i++)
   {
     for(int j=0;j<=this->init;j++)
@@ -126,12 +185,32 @@ int getadjmatrix(int index1,int index2)
   return this->adjmatrix[index1][index2];
 }
 
+int SearchByName(string ch)
+{
+  int flag=0;
+for(int i=0;i<=this->count;i++)
+{
+  if(this->vertices[i].getname()==ch)
+  {
+    return this->vertices[i].getnum();
+  }
+}  
+}
 
 
+string SearchByNum(int num)
+{
+  for(int i=0;i<=this->count;i++)
+{
+  if(this->vertices[i].getnum()==num)
+  {
+    return this->vertices[i].getname();
+  }
+}  
+}
 
 private:
-std::vector <int> vertices;
-std::vector <int> neighbors;
+Node *vertices;
 int **adjmatrix;
 int count;
 int init;
