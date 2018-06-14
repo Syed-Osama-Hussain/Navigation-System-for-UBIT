@@ -2,32 +2,35 @@
 #include "node.h"
 using namespace std;
 
-
+#ifndef room_h
+#define room_h
 class room:public Node
 {
 public:
 room():Node()
 {
   this->room_code=" ";
-  this->floor=0;
 }
 
 
-room(string code,int floor,string name,int num):Node(name,true,num)
+room(string code,int floor,string name,int num):Node(name,true,num,floor)
 {
 this->room_code= code;
-this->floor= floor;
 }
 
 room(room& roomcopy):Node(roomcopy)
 {
   this->room_code= roomcopy.room_code;
-  this->floor=roomcopy.floor;
 }
 
 virtual ~room()
 {
 
+}
+
+string getroom_code()
+{
+  return this->room_code;
 }
 
 virtual void display()
@@ -43,12 +46,12 @@ virtual istream& fileInput(std::istream& is)
 
 friend ostream& operator <<(ostream& out, room r1)
 {
-  return out<<r1.name<<" "<<r1.num<<" "<<r1.is_allowed<<" "<<r1.room_code<<" "<<r1.floor<<endl;
+  return out<<r1.name<<" "<<r1.is_allowed<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<endl;
 }
 
 friend std::istream& operator >> (std::istream & is, room  *s)
 {
-    is >> s->name>>s->is_allowed>>s->num >> s->room_code >> s->floor;
+    is >> s->name>>s->is_allowed>>s->num>>s->floor>>s->room_code;
     return is;
 } 
 
@@ -57,6 +60,7 @@ friend std::istream& operator >> (std::istream & is, room  *s)
 
 protected:
 string room_code;
-int floor;
 
 };
+
+#endif

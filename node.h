@@ -14,14 +14,16 @@ public:
       {
         this->num=0;
         this->is_allowed=false;
-        this->name;
+        this->name=" ";
+        this->floor=0;
       }
 
-      Node(string name, bool allowed, int value)
+      Node(string name, bool allowed, int value,int floor)
       {
         this->name= name;
         this->is_allowed= allowed;
         this->num= value;
+        this->floor= floor;
       }
 
 
@@ -32,6 +34,7 @@ public:
        this->num= n.num;
        this->is_allowed= n.is_allowed;
        this->name= n.name;
+       this->floor=n.floor;
       }
 
 
@@ -45,12 +48,18 @@ public:
         this->num=n.num;
         this->name=n.name;
         this->is_allowed= n.is_allowed;
+        this->floor=n.floor;
         return *this;
       }
 
 string getname()
 {
   return this->name;
+}
+
+int getfloor()
+{
+  return this->floor;
 }
 
 
@@ -68,26 +77,26 @@ bool getIs_allowed()
 
 virtual void display()
  {
-    cout<<this->name<<" "<<this->is_allowed<<" "<<this->num<<endl;
+    cout<<this->name<<" "<<this->is_allowed<<" "<<this->num<<" "<<floor<<endl;
  }
 
 virtual istream& fileInput(std::istream& is)
 {
-  is>>name>>is_allowed>>num;
+  is>>name>>is_allowed>>num>>floor;
   return is;
 }
  
 
       
 
-friend ostream& operator<<(ostream& out, Node N)
+friend ostream& operator<<(ostream& out, Node &N)
 {
-  return out<<N.name<<" "<<N.is_allowed<<" "<<N.num<<endl;
+  return out<<N.name<<" "<<N.is_allowed<<" "<<N.num<<" "<<N.floor<<endl;
 }
 
 friend std::istream& operator >> (std::istream & is, Node  *s)
 {
-    is >> s->name >> s->is_allowed >> s->num;
+    is >> s->name >> s->is_allowed >> s->num>>s->floor;
     return is;
 } 
 
@@ -98,6 +107,7 @@ protected:
 string name;
 bool is_allowed;
 int num;
+int floor;
 
 };
 #endif

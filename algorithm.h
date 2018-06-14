@@ -3,6 +3,8 @@
 #include "graph.h"
 using namespace std;
 
+#ifndef algorithm_h
+#define algorithm_h
 
 class dijkstra{
 public:
@@ -13,7 +15,7 @@ dijkstra()
   
  
   makegraph();
-  this->path= new int[this->g1.getcount()];
+  this->path= new int[this->g1.getcount()+1];
   this->distance= new int[this->g1.getcount()];
   this->visited= new bool[this->g1.getcount()];
 
@@ -50,7 +52,7 @@ for(int i=0;i<this->g1.getcount();i++)
 }
 distance[src]=0;
 
-for(int i=0;i<this->g1.getcount();i++)
+for(int i=0;i<this->g1.getcount()-1;i++)
 {
   
   int min_vertex= findMinVertex();
@@ -61,22 +63,22 @@ for(int i=0;i<this->g1.getcount();i++)
   visited[min_vertex]= true;
   for(int j=0;j<this->g1.getcount();j++)
   {
-    
+   
     if(check_neighbors(min_vertex,j) && !visited[j])
     {
       int dist= this->distance[min_vertex]+ this->g1.getadjmatrix(min_vertex,j);
-       
+      
+
       if(dist<distance[j])
       {
+        this->path[j]=min_vertex;
         distance[j]= dist;
       }
+      
     }
-    
   }
-  
-
 }
-
+this->path[n]=tar;
 display_path(tar);
 }
 
@@ -91,11 +93,7 @@ int findMinVertex()
       min_vertex=i;
     }
   }
-  
-  this->path[n]=min_vertex;
-  n++;  
   return min_vertex;
-  
 }
 
 
@@ -110,32 +108,31 @@ bool check_neighbors(int target,int j)
   {
     return 0;
   }
-
 }
 
 void display_path(int tar)
 {
-
-/*for(int i=0;i<this->count;i++)
-{
-  cout<<i<<" "<<this->distance[i]<<endl;
-  
-}*/
-cout<<"\nThe path to the destination is: ";
-for(int j=0;j<=g1.getcount();j++)
-  {
-    if(this->path[j]>=0)
-    {
+cout<<"\nThe path to the destination is ";
+    
+    int i= 0;
+     do{
+       if(path[i]>=0)
+       {
+       i=path[i];
       string temp;
-      temp=g1.SearchByNum(path[j]);
-    cout<<temp<<" ";
-    }
-  }
+      temp=g1.SearchByNum(i);
+    cout<<temp<<"<-";
+       }
+
+       else
+       {
+         break;
+       }
+     }while(i!=0);
+  
 
   cout<<" with total distance of "<<distance[tar]<<" units.\n"<<endl;
-
 }
-
 
 
 private:
@@ -144,3 +141,4 @@ bool *visited;
 int *path;
 graph g1;
 };
+#endif

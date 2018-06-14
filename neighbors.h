@@ -1,6 +1,9 @@
 #include <iostream>
 using namespace std;
 
+#ifndef neighbors_h
+#define neighbors_h
+
 class neighbors{
 public:
 
@@ -57,3 +60,4 @@ int sourceNum;
 int weight;
 int destNum;
 };
+#endif

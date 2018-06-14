@@ -3,10 +3,15 @@
 #include "Node.h"
 #include "neighbors.h"
 #include "room.h"
+#include "stairs.h"
 #include <fstream>
 using namespace std;
 
+#ifndef graph_h
+#define graph_h
 int n=0;
+
+
 class graph{
 public:
 
@@ -49,12 +54,22 @@ void readNodeData()
       this->vertices[this->count]= new Node;
       this->vertices[this->count]->fileInput(fin);
      }
-     else
+     
+    if(type=="Room")
+      {
+      this->vertices[this->count]= new room;
+      this->vertices[this->count]->fileInput(fin);
+      }
+     
+     if(type=="Stairs")
      {
-       this->vertices[this->count]= new room;
+       this->vertices[this->count]= new stairs;
        this->vertices[this->count]->fileInput(fin);
      }
+      
 
+     
+    this->vertices[this->count]->display();
     this->count++;
    }
    
@@ -103,7 +118,7 @@ void add_element(Node& element)
    increasesize();
   }
    
-   //this->vertices[this->count]=element;
+   this->vertices[this->count]=&element;
    this->count++;
   
 }
@@ -119,13 +134,12 @@ void display()
 {   
    for(int i=0;i<this->count;i++)
    {
-    // cout<<"The vertex "<< i <<" has the neighbours: ";
+     cout<<"The vertex "<< i <<" has the neighbours: ";
      for(int j=0;j<=this->count;j++)
      {
        if(this->adjmatrix[i][j]>=0)
        {
-         cout<<this->adjmatrix[i][j]<<" ";
-         //cout<<j<<" with weight "<<this->adjmatrix[i][j]<<"   ";
+         cout<<j<<" with weight "<<this->adjmatrix[i][j]<<"   ";
        }      
      }     
      cout<<endl;
@@ -204,3 +218,5 @@ int **adjmatrix;
 int count;
 int init;
 };
+
+#endif
