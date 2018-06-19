@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
-#include "algorithm.h"
+#include "algorithm.cpp"
 using namespace std;
 
 
 int main()
-{
-  string source;
+{ string source;
   string destination;
   cout<<"\nEnter your loaction: ";
   cin>>source;

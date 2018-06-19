@@ -10,98 +10,38 @@ using namespace std;
 
 class Node{
 public:
-      Node()
-      {
-        this->num=0;
-        this->is_allowed=false;
-        this->name=" ";
-        this->floor=0;
-      }
+Node();
 
-      Node(string name, bool allowed, int value,int floor)
-      {
-        this->name= name;
-        this->is_allowed= allowed;
-        this->num= value;
-        this->floor= floor;
-      }
+Node(string name, bool allowed, int value,int floor);
 
+Node(Node& n);
 
+virtual ~Node();
 
-      Node(Node& n)
-      {
-        
-       this->num= n.num;
-       this->is_allowed= n.is_allowed;
-       this->name= n.name;
-       this->floor=n.floor;
-      }
+virtual string getroom_code();
 
+virtual string getTeacher_name();
 
-     virtual ~Node()
-      {
-        
-      }
+virtual string get_purpose();
 
-      Node& operator=(Node& n)
-      {
-        this->num=n.num;
-        this->name=n.name;
-        this->is_allowed= n.is_allowed;
-        this->floor=n.floor;
-        return *this;
-      }
+Node& operator=(Node& n);
 
-string getname()
-{
-  return this->name;
-}
+string getname();
 
-int getfloor()
-{
-  return this->floor;
-}
+int getfloor();
 
+int getnum();
 
-int getnum()
-{
-  return this->num;
-}
+bool getIs_allowed();
 
+virtual void display();
 
-bool getIs_allowed()
-{
-  return this->is_allowed;
-}
+virtual istream& fileInput(std::istream& is);      
 
+friend ostream& operator<<(ostream& out, Node &N);
 
-virtual void display()
- {
-    cout<<this->name<<" "<<this->is_allowed<<" "<<this->num<<" "<<floor<<endl;
- }
-
-virtual istream& fileInput(std::istream& is)
-{
-  is>>name>>is_allowed>>num>>floor;
-  return is;
-}
- 
-
-      
-
-friend ostream& operator<<(ostream& out, Node &N)
-{
-  return out<<N.name<<" "<<N.is_allowed<<" "<<N.num<<" "<<N.floor<<endl;
-}
-
-friend std::istream& operator >> (std::istream & is, Node  *s)
-{
-    is >> s->name >> s->is_allowed >> s->num>>s->floor;
-    return is;
-} 
-
+friend std::istream& operator >> (std::istream & is, Node  *s);
    
-
 
 protected:
 string name;

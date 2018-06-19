@@ -9,49 +9,21 @@ class stairs:public Node
 {
 public:
 
-stairs():Node()
-{
+stairs();
 
-}
+stairs(string name,bool is_allowed,int num,int floor);
 
-stairs(string name,bool is_allowed,int num,int floor):Node(name,is_allowed,num,floor)
-{
+stairs(stairs& s);
 
-}
+~stairs();
 
-stairs(stairs& s):Node(s)
-{
+virtual void display();
 
-}
+virtual istream& fileInput(std::istream& is);
 
-~stairs()
-{
+friend ostream& operator <<(ostream& out, stairs& r1);
 
-}
-
-virtual void display()
-{
-  cout<<*this;
-}
-
-virtual istream& fileInput(std::istream& is)
-{
- is >>name>>is_allowed>>num>>floor;
-    return is;
-}
-
-friend ostream& operator <<(ostream& out, stairs r1)
-{
-  return out<<r1.name<<" "<<r1.is_allowed<<" "<<r1.num<<" "<<r1.floor<<endl;
-}
-
-friend std::istream& operator >> (std::istream & is, stairs *s)
-{
-    is >> s->name>>s->is_allowed>>s->num>>s->floor;
-    return is;
-} 
-
-
+friend std::istream& operator >> (std::istream & is, stairs *s);
 
 
 private:

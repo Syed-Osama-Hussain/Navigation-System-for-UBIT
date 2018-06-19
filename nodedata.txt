@@ -1,6 +1,6 @@
-Node   A 1 0 0
-Node   B 1 1 0
-Room   C 1 2 gf16 0
-Node   D 1 3 0
-Stairs E 1 4 0
-Room   F 1 5 gf17 1
+Node        A 1 0 0
+Specialroom B 1 1 gf23 0 Office
+TeacherRoom C 1 2 gf16 0 HT
+Classroom   D 1 3 gf17 1
+Stairs      E 1 4 0
+Room        F 1 5 ff17 1
