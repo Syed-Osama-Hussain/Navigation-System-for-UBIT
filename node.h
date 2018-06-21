@@ -12,7 +12,7 @@ class Node{
 public:
 Node();
 
-Node(string name, bool allowed, int value,int floor);
+Node(string name, int value,int floor);
 
 Node(Node& n);
 
@@ -45,7 +45,6 @@ friend std::istream& operator >> (std::istream & is, Node  *s);
 
 protected:
 string name;
-bool is_allowed;
 int num;
 int floor;
 

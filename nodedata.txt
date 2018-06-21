@@ -1,6 +1,132 @@
-Node        A 1 0 0
-Specialroom B 1 1 gf23 0 Office
-TeacherRoom C 1 2 gf16 0 HT
-Classroom   D 1 3 gf17 1
-Stairs      E 1 4 0
-Room        F 1 5 ff17 1
+Node        A  0   0
+Stairs      B  1   0
+Node        C  2   0
+Node        D  3   0
+Classroom   E  4   gf23 0
+Classroom   F  5   gf22 0
+TeacherRoom G  6   gf21 0 N/A
+TeacherRoom H  7   gf20 0 Humera-Bashir
+TeacherRoom I  8   gf19 0 Humera-Tariq
+TeacherRoom J  9   gf18 0 N/A
+Node        K  10  0
+Node        L  11  0
+Node        M  12  0
+Classroom   N  13  gf17 0
+Classroom   O  14  gf16 0
+Node        P  15  0
+Specialroom Q  16  gf14 0 Store
+Node        R  17  0
+TeacherRoom S  18  gf13 0 Multiple
+Stairs      T  19  0
+Node        U  20  0
+Specialroom V  21  gf11 0 Office
+Node        W  22  0
+Node        X  23  0
+Node        Y  24  0
+Node        Z  25  0
+Node        AA 26  0
+Node        AB 27  0
+Node        Ac 28  0
+Node        AD 29  0
+Node        AE 30  0
+Node        AF 31  0
+Stairs      AG 32  0
+Specialroom AH 33  gf09 0 Conference-Room-1
+Specialroom AI 34  gf10 0 Electrical-Room
+Node        AJ 35  0
+Node        AK 36  0
+Classroom   AL 37  gf07 0
+Classroom   AM 38  gf06 0
+TeacherRoom AN 39  gf05 0 N/A
+Node        AO 40  0
+TeacherRoom AP 41  gf04 0 Badar-Sami
+TeacherRoom AQ 42  gf03 0 N/A
+Classroom   AR 43  gf01 0
+Node        AS 44  0
+Node        AT 45  0
+Node        AU 46  0
+Node        AV 47  0
+Specialroom AW 48  gf02 0 Video-Conferencing
+Stairs      AX 49  1
+Node        AY 50  1
+Node        AZ 51  1
+Node        BA 52  1
+Classroom   BB 53  ff23 1
+Classroom   BC 54  ff22 1
+TeacherRoom BD 55  ff21 1 N/A
+TeacherRoom BE 56  ff20 1 Dr.Syed-Asim
+TeacherRoom BF 57  ff19 1 N/A
+TeacherRoom BG 58  ff18 1 Dr.Nadeem-Mehmood
+Classroom   BH 59  ff17 1
+Classroom   BI 60  ff16 1
+Node        BJ 61  1
+Node        BK 62  1
+Node        BL 63  1
+Node        BM 64  1
+Specialroom BN 65  ff12 1 Store-2
+Specialroom BO 66  ff14 1 Kitchen
+Specialroom BP 67  ff13 1 Staff-Dining
+Node        BQ 68  1
+Stairs      BR 69  1
+Node        BS 70  1
+Node        BT 71  1
+Node        BU 72  1
+Node        BV 73  1
+Node        BW 74  1
+Node        BX 75  1
+Node        BY 76  1
+Node        BZ 77  1
+Stairs      CA 78  1
+Room        CB 79  ff11 1
+Room        CC 80  ff10 1
+Node        CD 81  1
+Node        CE 82  1
+Classroom   CF 83  ff08 1
+Classroom   CG 84  ff07 1
+TeacherRoom CH 85  ff05 1 N/A
+TeacherRoom CI 86  ff06 1 Farhan-Siddique
+TeacherRoom CJ 87  ff04 1 N/A
+TeacherRoom CK 88  ff03 1 Sadiq-Ali
+Classroom   CL 89  ff02 1
+Classroom   CM 90  ff01 1
+Node        CN 91  1
+Node        CO 92  1
+Node        CP 93  1
+Node        CQ 94  1
+Stairs      CR 95  2
+Node        CS 96  2
+Node        CT 97  2
+Node        CU 98  2
+Classroom   CV 99  sf16 2
+Classroom   CW 100 sf15 2
+TeacherRoom CX 101 sf14 2 Taha-Bin-Niaz
+TeacherRoom CY 102 sf13 2 N/A
+TeacherRoom CZ 103 sf12 2 N/A
+TeacherRoom DA 104 sf11 2 N/A
+Classroom   DB 105 sf10 2
+Classroom   DC 106 sf09 2
+Node        DD 107 2
+Node        DE 108 2
+Node        DF 109 2
+Node        DG 110 2
+Specialroom DH 111 sf08 2 Toilet
+Specialroom DI 112 sf07 2 Common-Room(Girls)
+Specialroom DJ 113 sf06 2 Physics-Lab
+Node        DK 114 2
+Stairs      DL 115 2
+Node        DM 116 2
+Node        DN 117 2
+Node        DO 118 2
+Node        DP 119 2
+Node        DQ 120 2
+Node        DR 121 2
+Node        DS 122 2
+Node        DT 123 2
+Specialroom DU 124 sf05 2 Digital-Electronics-lab
+Stairs      DV 125 2
+Node        DW 126 2
+Specialroom Dx 127 sf03 2 Seminar-Hall
+Specialroom DY 128 sf04 2 Data-Center
+Node        DZ 129 2
+Specialroom EA 130 sf01 2 Conference-Room-2
+Specialroom EB 131 sf02 2 Library

@@ -27,17 +27,17 @@ void classroom::display()
 
 istream& classroom::fileInput(std::istream& is)
 {
- is >>name>>is_allowed>>num>>room_code>>floor;
+ is >>name>>num>>room_code>>floor;
     return is;
 }
 
 ostream& operator <<(ostream& out, classroom r1)
 {
-  return out<<r1.name<<" "<<r1.is_allowed<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<endl;
+  return out<<r1.name<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<endl;
 }
 
 std::istream& operator >> (std::istream & is, classroom  *s)
 {
-    is >> s->name>>s->is_allowed>>s->num>>s->floor>>s->room_code;
+    is >> s->name>>s->num>>s->floor>>s->room_code;
     return is;
 } 

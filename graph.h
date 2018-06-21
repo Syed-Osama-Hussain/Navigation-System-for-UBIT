@@ -45,7 +45,7 @@ string SearchByNum(int num);
 
 
 private:
-Node *vertices[100];
+Node *vertices[200];
 int **adjmatrix;
 int count;
 int init;

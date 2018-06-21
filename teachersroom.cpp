@@ -34,17 +34,17 @@ void TeacherRoom::display()
 
 istream& TeacherRoom::fileInput(std::istream& is)
 {
- is >>name>>is_allowed>>num>>room_code>>floor>>teacher_name;
+ is >>name>>num>>room_code>>floor>>teacher_name;
     return is;
 }
 
 ostream& operator <<(ostream& out, TeacherRoom& r1)
 {
-  return out<<r1.name<<" "<<r1.is_allowed<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<" "<<r1.teacher_name<<endl;
+  return out<<r1.name<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<" "<<r1.teacher_name<<endl;
 }
 
 std::istream& operator >> (std::istream & is, TeacherRoom  *s)
 {
-    is >> s->name>>s->is_allowed>>s->num>>s->floor>>s->room_code>>s->teacher_name;
+    is >> s->name>>s->num>>s->floor>>s->room_code>>s->teacher_name;
     return is;
 } 

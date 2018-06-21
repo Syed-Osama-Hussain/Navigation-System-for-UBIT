@@ -12,7 +12,7 @@ room::room():Node()
 }
 
 
-room::room(string code,int floor,string name,int num):Node(name,true,num,floor)
+room::room(string code,int floor,string name,int num):Node(name,num,floor)
 {
 this->room_code= code;
 }
@@ -49,18 +49,18 @@ void room::display()
 
 istream& room::fileInput(std::istream& is)
 {
- is >>name>>is_allowed>>num>>room_code>>floor;
+ is >>name>>num>>room_code>>floor;
     return is;
 }
 
 ostream& operator <<(ostream& out, room& r1)
 {
-  return out<<r1.name<<" "<<r1.is_allowed<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<endl;
+  return out<<r1.name<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<endl;
 }
 
 std::istream& operator >> (std::istream & is, room  *s)
 {
-    is >> s->name>>s->is_allowed>>s->num>>s->floor>>s->room_code;
+    is >> s->name>>s->num>>s->floor>>s->room_code;
     return is;
 } 
 

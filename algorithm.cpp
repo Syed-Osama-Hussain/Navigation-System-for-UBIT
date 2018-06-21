@@ -8,7 +8,7 @@ dijkstra::dijkstra()
   this->path= new int[this->g1.getcount()+1];
   this->distance= new int[this->g1.getcount()];
   this->visited= new bool[this->g1.getcount()];
-  //userinput();
+  userinput();
 }
 
 dijkstra::~dijkstra()
@@ -25,11 +25,15 @@ void dijkstra::userinput()
 {
   string source;
   string destination;
+  int src;
+  int tar;
   cout<<"\nEnter your loaction: ";
   cin>>source;
-  cout<<"\nEnter the destination: ";
+  src=g1.SearchByName(source);
+   cout<<"\nEnter the destination: ";
   cin>>destination;
-  dijkstra_search(source,destination);
+  tar=g1.SearchByName(destination);
+  dijkstra_search(src,tar);
 }
 
 void dijkstra::makegraph()
@@ -38,13 +42,9 @@ void dijkstra::makegraph()
   g1.readNeighborData();
 }
 
-void dijkstra::dijkstra_search (string source,string target)
+void dijkstra::dijkstra_search (int src,int tar)
 {
-  int src;
-  int tar;
-  src=g1.SearchByName(source);
-  tar=g1.SearchByName(target);
-  n=0;
+ n=0;
 
 for(int i=0;i<this->g1.getcount();i++)
 {
@@ -112,16 +112,16 @@ bool dijkstra::check_neighbors(int target,int j)
   }
 }
 
+
 void dijkstra::display_path(int tar)
 {
-cout<<"\nThe path to the destination is ";
-    
+cout<<"\nThe path to the destination is ";                                
     int i= 0;
      do{
        if(path[i]>=0)
        {
        i=path[i];
-      string temp;
+       string temp;
       temp=g1.SearchByNum(i);
     cout<<temp<<"<-";
        }

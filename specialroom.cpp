@@ -34,17 +34,17 @@ void Specialroom::display()
 
 istream& Specialroom::fileInput(std::istream& is)
 {
- is >>name>>is_allowed>>num>>room_code>>floor>>purpose;
+ is >>name>>num>>room_code>>floor>>purpose;
     return is;
 }
 
 ostream& operator <<(ostream& out, Specialroom& r1)
 {
-  return out<<r1.name<<" "<<r1.is_allowed<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<" "<<r1.purpose<<endl;
+  return out<<r1.name<<" "<<r1.num<<" "<<r1.room_code<<" "<<r1.floor<<" "<<r1.purpose<<endl;
 }
 
 std::istream& operator >> (std::istream & is, Specialroom  *s)
 {
-    is >> s->name>>s->is_allowed>>s->num>>s->floor>>s->room_code>>s->purpose;
+    is >> s->name>>s->num>>s->floor>>s->room_code>>s->purpose;
     return is;
 }

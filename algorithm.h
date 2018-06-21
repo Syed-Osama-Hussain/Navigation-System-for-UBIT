@@ -18,7 +18,7 @@ void userinput();
 
 void makegraph();
 
-void dijkstra_search (string source,string target);
+void dijkstra_search (int source,int target);
 
 int findMinVertex();
 

@@ -152,7 +152,7 @@ int graph::SearchByName(string ch)
 {
   int flag=0;
   int i;
-for(i=0;i<=this->count;i++)
+for(i=0;i<this->count;i++)
 {
   if(this->vertices[i]->getname()==ch)
   {
@@ -218,20 +218,19 @@ if(flag>0)
 }
 else 
   {
- i=SearchByPurpose(ch);
- return i;
+  i= SearchByPurpose(ch);
+  return i;
   }
-
 }
 
 
 int graph::SearchByPurpose(string ch)
 {
  int flag=0;
-  int i;
-for(i=0;i<this->count;i++)
+  int j;
+for(j=0;j<this->count;j++)
 {
-  if(this->vertices[i]->get_purpose()==ch)
+  if(this->vertices[j]->get_purpose()==ch)
   {
     flag++;
     break;
@@ -240,11 +239,19 @@ for(i=0;i<this->count;i++)
 
 if(flag>0)
 {
-     return vertices[i]->getnum();
+     return vertices[j]->getnum();
 }
 else 
   {
- cout<<"\nNo such node found in the map\n";
+   try{
+      if(flag<=0)
+    throw -1;
+    }
+    catch(...)
+    {
+cout<<"\nNo such node found in the map.\n\n";
+    }
+ system("pause");
  exit(-1);
   }
 }
@@ -255,11 +262,18 @@ string graph::SearchByNum(int num)
 {
   for(int i=0;i<=this->count;i++)
 {
+  if(num>0)
+  {
+      /*if(this->vertices[i]->getnum()==num && this->vertices[i]->get_purpose() != " ")
+  {
+    return this->vertices[i]->get_purpose();
+  }*/
+
   if(this->vertices[i]->getnum()==num && this->vertices[i]->getroom_code() > " ")
   {
     return this->vertices[i]->getroom_code();
   }
-
+  }
   if(this->vertices[i]->getnum()==num && this->vertices[i]->getname() > " ")
   {
       return this->vertices[i]->getname();
@@ -306,6 +320,6 @@ void graph::increasesize()
   {
      delete[] adjmatrix[j];
   }
-  delete[] adjmatrix;
+  //delete[] adjmatrix;
   adjmatrix=temp;
 }

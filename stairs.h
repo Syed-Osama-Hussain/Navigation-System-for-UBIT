@@ -11,7 +11,7 @@ public:
 
 stairs();
 
-stairs(string name,bool is_allowed,int num,int floor);
+stairs(string name,int num,int floor);
 
 stairs(stairs& s);
 
