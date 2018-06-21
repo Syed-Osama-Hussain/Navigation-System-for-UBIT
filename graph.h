@@ -15,7 +15,7 @@ class graph{
 
 public:
 
-graph();
+static graph* getInstance();
 
 void readNodeData(); 
  
@@ -49,8 +49,10 @@ Node *vertices[200];
 int **adjmatrix;
 int count;
 int init;
+static bool InstanceFlag;
+static graph *grp;
 
-
+graph();
 void increasesize();
 
 };

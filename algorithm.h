@@ -9,10 +9,9 @@ using namespace std;
 class dijkstra{
 public:
 
-
-dijkstra();
-
 ~dijkstra();
+
+static dijkstra* getinstance();
 
 void userinput();
 
@@ -27,10 +26,15 @@ bool check_neighbors(int target,int j);
 void display_path(int tar);
 
 
+
 private:
+static bool instanceFlag;
+static dijkstra *algo;
 int *distance;
 bool *visited;
 int *path;
-graph g1;
+graph *g1;
+
+dijkstra();
 };
 #endif

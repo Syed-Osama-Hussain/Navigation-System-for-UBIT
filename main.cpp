@@ -6,6 +6,8 @@ using namespace std;
 
 int main()
 {
-  dijkstra d1;
+  dijkstra *d1;
+  d1= dijkstra::getinstance();
+  delete d1;
   system("pause");
 }

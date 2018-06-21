@@ -2,6 +2,9 @@
 #include "graph.h"
 using namespace std;
 
+bool graph::InstanceFlag= false;
+graph* graph::grp=NULL;
+
 graph::graph()
 {
   this->count=0;
@@ -20,6 +23,21 @@ graph::graph()
     }
   } 
   
+}
+
+
+graph* graph::getInstance()
+{
+  if(!InstanceFlag)
+  {
+    grp=new graph();
+    InstanceFlag=true;
+    return grp;
+  }
+  else
+  {
+    return grp;
+  }
 }
 
 
@@ -102,8 +120,6 @@ void graph::readNodeData()
        this->vertices[this->count]->fileInput(fin);
      }
 
-     
-    //this->vertices[this->count]->display();
     this->count++;
    }
    
