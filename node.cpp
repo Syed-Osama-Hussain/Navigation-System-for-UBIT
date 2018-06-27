@@ -37,17 +37,17 @@ using namespace std;
 
       string Node::getroom_code()
       {
-
+         return " ";
       }
 
       string Node::getTeacher_name()
       {
-        
+         return " ";
       }
 
       string Node::get_purpose()
       {
-
+         return " ";
       }
 
       Node& Node::operator=(Node& n)
@@ -81,6 +81,7 @@ void Node::display()
     cout<<this->name<<" "<<this->num<<" "<<floor<<endl;
  }
 
+
 istream& Node::fileInput(std::istream& is)
 {
   is>>name>>num>>floor;
@@ -88,7 +89,7 @@ istream& Node::fileInput(std::istream& is)
 }
  
 
-ostream& operator<<(ostream& out, Node &N)
+ostream& operator<<(ostream& out,Node &N)
 {
   return out<<N.name<<" "<<N.num<<" "<<N.floor<<endl;
 }

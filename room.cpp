@@ -34,12 +34,12 @@ string room::getroom_code()
 
 string room::getTeacher_name()
 {
-
+  return " ";
 }
 
 string room::get_purpose()
 {
-  
+  return " ";
 }
 
 void room::display()

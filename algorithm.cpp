@@ -30,7 +30,7 @@ dijkstra* dijkstra::getinstance()
 
 dijkstra::~dijkstra()
 {
-  delete g1;
+ delete g1;
  delete[] path;
  delete[] distance;
  delete[] visited;

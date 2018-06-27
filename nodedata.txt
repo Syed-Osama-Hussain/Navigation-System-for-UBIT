@@ -77,8 +77,8 @@ Node        BX 75  1
 Node        BY 76  1
 Node        BZ 77  1
 Stairs      CA 78  1
-Room        CB 79  ff11 1
-Room        CC 80  ff10 1
+Specialroom CB 79  ff11 1 Control-Room1
+Specialroom CC 80  ff10 1 Control-Room2
 Node        CD 81  1
 Node        CE 82  1
 Classroom   CF 83  ff08 1

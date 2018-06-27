@@ -119,7 +119,6 @@ void graph::readNodeData()
        this->vertices[this->count]= new Specialroom;
        this->vertices[this->count]->fileInput(fin);
      }
-
     this->count++;
    }
    
@@ -280,17 +279,17 @@ string graph::SearchByNum(int num)
 {
   if(num>0)
   {
-      /*if(this->vertices[i]->getnum()==num && this->vertices[i]->get_purpose() != " ")
+      if(this->vertices[i]->getnum()==num && this->vertices[i]->get_purpose() != " ")
   {
     return this->vertices[i]->get_purpose();
-  }*/
+  }
 
-  if(this->vertices[i]->getnum()==num && this->vertices[i]->getroom_code() > " ")
+  if(this->vertices[i]->getnum()==num && this->vertices[i]->getroom_code() != " ")
   {
     return this->vertices[i]->getroom_code();
   }
   }
-  if(this->vertices[i]->getnum()==num && this->vertices[i]->getname() > " ")
+  if(this->vertices[i]->getnum()==num && this->vertices[i]->getname() != " ")
   {
       return this->vertices[i]->getname();
   }
@@ -336,6 +335,5 @@ void graph::increasesize()
   {
      delete[] adjmatrix[j];
   }
-  //delete[] adjmatrix;
   adjmatrix=temp;
 }

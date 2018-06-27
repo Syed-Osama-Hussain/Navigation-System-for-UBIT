@@ -47,10 +47,9 @@ ostream& operator <<(ostream& o,neighbors& n)
   return o<<n.sourceNum<<" "<<n.destNum<<" "<<n.weight<<"\n"<<endl;
 }
 
-std::istream& operator >> (std::istream & is, neighbors & s)
+std::istream& operator >> (std::istream & is,neighbors & s)
 {
-    is >> s.sourceNum >> s.destNum >> s.weight;
-    return is;
+    return  is >> s.sourceNum >> s.destNum >> s.weight;
 } 
 
 #endif

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cmath>
 #include <fstream>
 using namespace std;
 
@@ -31,8 +30,6 @@ string getname();
 int getfloor();
 
 int getnum();
-
-bool getIs_allowed();
 
 virtual void display();
 
