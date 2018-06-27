@@ -1,0 +1,16 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\algorithm.o
+./release\graph.o
+./release\neighbors.o
+./release\node.o
+./release\room.o
+./release\stairs.o
+./release\classroom.o
+./release\teachersroom.o
+./release\specialroom.o
+./release\path.o
+./release\moc_mainwindow.o
+./release\moc_path.o
+);

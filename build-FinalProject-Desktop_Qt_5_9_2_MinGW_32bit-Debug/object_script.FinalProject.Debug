@@ -1,0 +1,16 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\algorithm.o
+./debug\graph.o
+./debug\neighbors.o
+./debug\node.o
+./debug\room.o
+./debug\stairs.o
+./debug\classroom.o
+./debug\teachersroom.o
+./debug\specialroom.o
+./debug\path.o
+./debug\moc_mainwindow.o
+./debug\moc_path.o
+);
