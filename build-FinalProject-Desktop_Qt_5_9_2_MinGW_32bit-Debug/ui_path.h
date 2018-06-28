@@ -38,6 +38,7 @@ public:
         if (Path->objectName().isEmpty())
             Path->setObjectName(QStringLiteral("Path"));
         Path->resize(369, 249);
+        Path->setStyleSheet(QStringLiteral("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(255, 178, 102, 255), stop:0.55 rgba(235, 148, 61, 255), stop:0.98 rgba(0, 0, 0, 255), stop:1 rgba(0, 0, 0, 0));"));
         centralwidget = new QWidget(Path);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         pushButton = new QPushButton(centralwidget);
@@ -47,6 +48,7 @@ public:
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(26, 19, 321, 41));
         label->setStyleSheet(QLatin1String("color: rgb(0, 85, 0);\n"
+"color: rgb(0, 0, 0);\n"
 "font: 14pt \"Times New Roman\";\n"
 "font: 75 italic 14pt \"Times New Roman\";"));
         Path_Display = new QLabel(centralwidget);
